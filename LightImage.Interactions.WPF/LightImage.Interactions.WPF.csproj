@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
-    <Version>0.0.5-alpha</Version>
+    <Version>0.0.6-alpha</Version>
     <Authors>Ronald van der Velden, Jeroen van der Velden</Authors>
     <Company>Light Image</Company>
     <Description>MediatR-powered interactions for view models</Description>
@@ -16,6 +16,11 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <RootNamespace>LightImage.Interactions</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ReactiveUI" Version="11.3.8" />
+    <PackageReference Include="ReactiveUI.WPF" Version="11.3.8" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\LightImage.Interactions\LightImage.Interactions.csproj" />

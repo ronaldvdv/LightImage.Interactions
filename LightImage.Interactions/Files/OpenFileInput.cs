@@ -2,5 +2,6 @@
 {
     public class OpenFileInput : FileInput<OpenFileOutput>
     {
+        public bool MultiSelect { get; set; } = false;
     }
 }

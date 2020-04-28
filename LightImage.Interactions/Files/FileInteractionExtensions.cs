@@ -1,4 +1,5 @@
 ﻿using LightImage.Interactions.Files;
+using System;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -6,9 +7,14 @@ namespace LightImage.Interactions
 {
     public static class FileInteractionExtensions
     {
-        public static async Task<FileInfo[]> OpenFile(this IInteractionService service, OpenFileInput input = null)
+        public static async Task<FileInfo[]> OpenFile(this IInteractionService service, OpenFileInput input)
         {
-            var result = await service.Show<OpenFileInput, OpenFileOutput>(input ?? new OpenFileInput());
+            if (input is null)
+            {
+                throw new ArgumentNullException(nameof(input));
+            }
+
+            var result = await service.Show<OpenFileInput, OpenFileOutput>(input);
             return result?.Files;
         }
 
@@ -17,15 +23,21 @@ namespace LightImage.Interactions
             string title = "Open file",
             string defaultExtension = "",
             string filter = "All files (*.*)|*.*",
-            string path = ""
+            string path = "",
+            bool multiSelect = false
         )
         {
-            return OpenFile(service, new OpenFileInput { DefaultExtension = defaultExtension, Filter = filter, Path = path, Title = title });
+            return OpenFile(service, new OpenFileInput { DefaultExtension = defaultExtension, Filter = filter, MultiSelect = multiSelect, Path = path, Title = title });
         }
 
-        public static async Task<FileInfo> SaveFile(this IInteractionService service, SaveFileInput input = null)
+        public static async Task<FileInfo> SaveFile(this IInteractionService service, SaveFileInput input)
         {
-            var result = await service.Show<SaveFileInput, SaveFileOutput>(input ?? new SaveFileInput());
+            if (input is null)
+            {
+                throw new ArgumentNullException(nameof(input));
+            }
+
+            var result = await service.Show<SaveFileInput, SaveFileOutput>(input);
             return result?.File;
         }
 
