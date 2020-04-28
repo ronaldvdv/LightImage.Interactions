@@ -18,7 +18,7 @@ For example, let's assume we have a view model representing a simple document ed
 * Install the `LightImage.Interactions.WPF` package in the package containing your views, or implement your own dialogs.
 * In the dependency injection container, make sure to
   - register the `InteractionService` class
-  - register your interaction handlers
+  - register the interaction handlers
 
 ## Autofac sample
 
@@ -32,23 +32,27 @@ If you're using Autofac and WPF, the specific steps would be as follows:
   - [LightImage.Interactions.WPF](https://www.nuget.org/packages/LightImage.Interactions.WPF/)
 * Setup the dependency injection container:
   - Register the interaction service using  `builder.RegisterType<InteractionService>().As<IInteractionService>().SingleInstance();`  
-  - Register the handlers using `builder.AddMediatR(GetType().Assembly);`
+  - Register the handlers using `builder.AddMediatR(typeof(FileInteractionHandler).Assembly, GetType().Assembly);`
   - Make sure to enable contravariant handler resolution using `builder.RegisterSource(new ContravariantRegistrationSource());`
 
 ## Standard interactions
 
-Various extension methods for the `IInteractionService` make it a lot easier to perform common user interactions without creating custom view models. Below is a list of these methods.
+Various extension methods for the `IInteractionService` make it a lot easier to perform common user interactions without creating custom view models. Below is a list of these methods. The last column indicate which view models are being used. This defines the required interaction handler. For all methods below, standard handlers can be found in the `LightImage.Interactions.WPF` package. By using this package, you can therefore just use the methods without constructing the view models mentioned in the last columns.
 
-* `Show<TInput, TOutput>()` is the main method exposed by the interface. It takes any input view model `TInput` that implements `IInteractionInput<TOutput>`.
-* `ShowMessage(title, message, icon, buttons)` shows a message in a popup dialog and returns the chosen button.
-* `YesNo(title, message, icon)` is a shorthand that displays a pair of *Yes*- and *No*-buttons and returns a boolean indicating whether *Yes* was chosen.
-* `YesNoCancel(title, message, icon)` also includes a *Cancel*-button. The return type is `bool?` where `null` represents the *Cancel*-button.
-* `Prompt<T>(title, message, defaultValue, icon, parser, formatter, predicate)` is a general method for asking the user for input. The `parser` and `formatter` together perform conversion from the input type `T` to strings. The `predicate` defines which values are accepted.
-* `Input(title, message, defaultValue, icon, predicate)` is a shorthand version. There are two versions, one for `string` return types and one for `int?`.
-* `SelectFiles()` allows for picking a file.
-* `Show<TEnum>(title, message)` allows for picking one member of an enum type. The `[Display]` and `[Description]` attributes can be used to decorate each member. The result is either the chosen member of `null` if *Cancel* was clicked.
+| Method signature | Description | Input model | Output model |
+|------------------|-------------|-------------|--------------|
+`Show<TInput, TOutput>()` | Main method exposed by the interface. It takes any input view model `TInput` that implements `IInteractionInput<TOutput>` | `TInput` | `TOutput` |
+| `ShowMessage(title, message, icon, buttons)` | Shows a message in a popup dialog and returns the chosen button. | `MessageOptions` | `MessageResult` |
+| `YesNo(title, message, icon)` | Shorthand that displays a pair of *Yes*- and *No*-buttons and returns a boolean indicating whether *Yes* was chosen. | `MessageOptions` | `MessageResult` |
+| `YesNoCancel(title, message, icon)` | As above, including a *Cancel*-button. The return type is `bool?` where `null` represents the *Cancel*-button. | `MessageOptions` | `MessageResult` |
+| `Prompt<T>(title, message, defaultValue, icon, parser, formatter, predicate)` | General method for asking the user for input. The `parser` and `formatter` together perform conversion from the input type `T` to strings. The `predicate` defines which values are accepted. | `PromptOptions` | `PromptResult` |
+| `Input(title, message, defaultValue, icon, predicate)` | Shorthand version of the above method. There are two versions, one for `string` return types and one for `int?`. | `PromptOptions` | `PromptResult` |
+| `OpenFile()` | Allows for picking one or more files to be opened. | `OpenFileInput` | `OpenFileOutput` |
+| `SaveFile()` | Allows for picking a path for saving a file. | `SaveFileInput` | `SaveFileOutput` |
+| `Show<TEnum>(title, message)` | Allows for picking one member of an enum type. The `[Display]` and `[Description]` attributes can be used to decorate each member. The result is either the chosen member of `null` if *Cancel* was clicked. | `EnumViewModel` | `EnumMemberViewModel` |
 
 ## Custom interactions
+
 
 ## Tasks
 
@@ -56,8 +60,5 @@ Various extension methods for the `IInteractionService` make it a lot easier to 
 
 ## Roadmap
 
-* Add WPF library
+* Complete documentation
 * Add unit tests
-* Separate `OpenFile` and `SaveFile` use cases and choose between one or multiple files.
-* Color extension methods
-* Tasks
