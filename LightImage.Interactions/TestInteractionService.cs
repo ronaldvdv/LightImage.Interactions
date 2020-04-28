@@ -1,12 +1,10 @@
-﻿using LightImage.Interactions.Colors;
-using LightImage.Interactions.Files;
+﻿using LightImage.Interactions.Files;
 using LightImage.Interactions.Messages;
 using LightImage.Interactions.Prompts;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
-using System.Xml.Schema;
 
 namespace LightImage.Interactions
 {
@@ -15,7 +13,6 @@ namespace LightImage.Interactions
         #region Test results
 
         public PromptResult PromptResult { get; set; } = new PromptResult(string.Empty, MessageButton.Ok);
-        public ColorResult SelectColorResult { get; set; } = new ColorResult { Red = 50, Green = 75, Blue = 100, Opacity = 100, Success = true };
         public FileInfo[] SelectFilesResult { get; set; } = null;
         public MessageButton ShowResult { get; set; } = MessageButton.Ok;
 
@@ -57,8 +54,7 @@ namespace LightImage.Interactions
         {
             Setup<MessageOptions, MessageResult>(() => new MessageResult(ShowResult));
             Setup<PromptOptions, PromptResult>(() => PromptResult);
-            Setup<SelectFileInput, SelectFileOutput>(() => new SelectFileOutput(SelectFilesResult));
-            Setup<ColorInput, ColorResult>(() => SelectColorResult);
+            Setup<OpenFileInput, OpenFileOutput>(() => new OpenFileOutput(SelectFilesResult));
         }
     }
 }

@@ -2,9 +2,9 @@
 
 namespace LightImage.Interactions.Files
 {
-    public class SelectFileOutput
+    public class OpenFileOutput
     {
-        public SelectFileOutput(FileInfo[] files)
+        public OpenFileOutput(FileInfo[] files)
         {
             Files = files;
         }
