@@ -37,19 +37,19 @@ If you're using Autofac and WPF, the specific steps would be as follows:
 
 ## Standard interactions
 
-Various extension methods for the `IInteractionService` make it a lot easier to perform common user interactions without creating custom view models. Below is a list of these methods. The last column indicate which view models are being used. This defines the required interaction handler. For all methods below, standard handlers can be found in the `LightImage.Interactions.WPF` package. By using this package, you can therefore just use the methods without constructing the view models mentioned in the last columns.
+Various extension methods for the `IInteractionService` make it a lot easier to perform common user interactions without creating custom view models. Below is a list of these methods. The last column indicate which view models are being used. This defines the required interaction handler. For all methods below, standard handlers can be found in the `LightImage.Interactions.WPF` package. By using this package, you can therefore just use the methods without constructing the view models mentioned in the last column.
 
-| Method signature | Description | Input model | Output model |
+| Method signature | Description | View models |
 |------------------|-------------|-------------|--------------|
-`Show<TInput, TOutput>()` | Main method exposed by the interface. It takes any input view model `TInput` that implements `IInteractionInput<TOutput>` | `TInput` | `TOutput` |
-| `ShowMessage(title, message, icon, buttons)` | Shows a message in a popup dialog and returns the chosen button. | `MessageOptions` | `MessageResult` |
-| `YesNo(title, message, icon)` | Shorthand that displays a pair of *Yes*- and *No*-buttons and returns a boolean indicating whether *Yes* was chosen. | `MessageOptions` | `MessageResult` |
-| `YesNoCancel(title, message, icon)` | As above, including a *Cancel*-button. The return type is `bool?` where `null` represents the *Cancel*-button. | `MessageOptions` | `MessageResult` |
-| `Prompt<T>(title, message, defaultValue, icon, parser, formatter, predicate)` | General method for asking the user for input. The `parser` and `formatter` together perform conversion from the input type `T` to strings. The `predicate` defines which values are accepted. | `PromptOptions` | `PromptResult` |
-| `Input(title, message, defaultValue, icon, predicate)` | Shorthand version of the above method. There are two versions, one for `string` return types and one for `int?`. | `PromptOptions` | `PromptResult` |
-| `OpenFile()` | Allows for picking one or more files to be opened. | `OpenFileInput` | `OpenFileOutput` |
-| `SaveFile()` | Allows for picking a path for saving a file. | `SaveFileInput` | `SaveFileOutput` |
-| `Show<TEnum>(title, message)` | Allows for picking one member of an enum type. The `[Display]` and `[Description]` attributes can be used to decorate each member. The result is either the chosen member of `null` if *Cancel* was clicked. | `EnumViewModel` | `EnumMemberViewModel` |
+`Show<TInput, TOutput>(input)` | Main method exposed by the interface. It takes any input view model `TInput` that implements `IInteractionInput<TOutput>` | `TInput` / `TOutput` |
+| `ShowMessage(title, message, icon, buttons)` | Shows a message in a popup dialog and returns the chosen button. | `MessageOptions` / `MessageResult` |
+| `YesNo(title, message, icon)` | Shorthand that displays a pair of *Yes*- and *No*-buttons and returns a boolean indicating whether *Yes* was chosen. | `MessageOptions` / `MessageResult` |
+| `YesNoCancel(title, message, icon)` | As above, including a *Cancel*-button. The return type is `bool?` where `null` represents the *Cancel*-button. | `MessageOptions` / `MessageResult` |
+| `Prompt<T>(title, message, defaultValue, icon, parser, formatter, predicate)` | General method for asking the user for input. The `parser` and `formatter` together perform conversion from the input type `T` to strings. The `predicate` defines which values are accepted. | `PromptOptions` / `PromptResult` |
+| `Input(title, message, defaultValue, icon, predicate)` | Shorthand version of the above method. There are two versions, one for `string` return types and one for `int?`. | `PromptOptions` / `PromptResult` |
+| `OpenFile()` | Allows for picking one or more files to be opened. | `OpenFileInput` / `OpenFileOutput` |
+| `SaveFile()` | Allows for picking a path for saving a file. | `SaveFileInput` /`SaveFileOutput` |
+| `Show<TEnum>(title, message)` | Allows for picking one member of an enum type. The `[Display]` and `[Description]` attributes can be used to decorate each member. The result is either the chosen member of `null` if *Cancel* was clicked. | `EnumViewModel` / `EnumMemberViewModel` |
 
 ## Custom interactions
 
