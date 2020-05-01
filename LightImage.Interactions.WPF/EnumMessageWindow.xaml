@@ -6,9 +6,16 @@
         xmlns:vm="clr-namespace:LightImage.Interactions.Enums;assembly=LightImage.Interactions"
                              xmlns:local="clr-namespace:LightImage.Interactions"
         mc:Ignorable="d"
-                     FocusManager.FocusedElement="{Binding ElementName=ColorCanvas}"
-        Style="{StaticResource WindowStyle}" WindowStartupLocation="CenterOwner"
+                     FocusManager.FocusedElement="{Binding ElementName=RadioItems}"
+        WindowStartupLocation="CenterOwner"
         Title="Title" SizeToContent="Height" Width="350">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />

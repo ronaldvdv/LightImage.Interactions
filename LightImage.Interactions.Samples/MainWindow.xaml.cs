@@ -1,28 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using ReactiveUI;
 
 namespace LightImage.Interactions.Samples
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MainWindowBase
     {
-        public MainWindow()
+        public MainWindow(AppViewModel app)
         {
             InitializeComponent();
+            ViewModel = app;
+
+            this.BindCommand(ViewModel, vm => vm.Info, v => v.InfoButton);
+            this.BindCommand(ViewModel, vm => vm.YesNo, v => v.YesNoButton);
+            this.BindCommand(ViewModel, vm => vm.File, v => v.FileButton);
+            this.BindCommand(ViewModel, vm => vm.Enum, v => v.EnumButton);
+            this.BindCommand(ViewModel, vm => vm.Number, v => v.NumberButton);
+            this.BindCommand(ViewModel, vm => vm.NumberRange, v => v.NumberRangeButton);
+            this.BindCommand(ViewModel, vm => vm.String, v => v.StringButton);
         }
+    }
+
+    public class MainWindowBase : ReactiveWindow<AppViewModel>
+    {
     }
 }

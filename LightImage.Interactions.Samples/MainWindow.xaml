@@ -1,12 +1,23 @@
-﻿<Window x:Class="LightImage.Interactions.Samples.MainWindow"
+﻿<local:MainWindowBase x:Class="LightImage.Interactions.Samples.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LightImage.Interactions.Samples"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
-</Window>
+        Title="MainWindow" Height="250" Width="400">
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="5" />
+        </Style>
+    </Window.Resources>
+    <UniformGrid Rows="3" Columns="3">
+        <Button x:Name="InfoButton">Info window</Button>
+        <Button x:Name="YesNoButton">Yes-no choice</Button>
+        <Button x:Name="FileButton">Pick a file</Button>
+        <Button x:Name="EnumButton">Enumeration window</Button>
+        <Button x:Name="NumberButton">Enter a number</Button>
+        <Button x:Name="NumberRangeButton">Number with predicate</Button>
+        <Button x:Name="StringButton">Enter any string</Button>
+    </UniformGrid>
+</local:MainWindowBase>

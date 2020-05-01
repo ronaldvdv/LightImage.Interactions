@@ -3,11 +3,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:LightImage.Interactions"
         xmlns:iconpacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow" ResizeMode="NoResize"
         Title="InputWindow" SizeToContent="WidthAndHeight">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid Margin="2">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
@@ -22,11 +28,11 @@
             <Label x:Name="TheLabel" >My label</Label>
             <TextBox x:Name="TheTextBox" TextChanged="TheTextBox_TextChanged">Test</TextBox>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Right" Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Margin="4">
-            <Button x:Name="OK"  IsDefault="True" Height="25" Margin="2">_OK</Button>
-            <Button x:Name="Yes" Height="25" Margin="2">_Yes</Button>
-            <Button x:Name="No" Height="25" Margin="2">_No</Button>
-            <Button x:Name="Cancel" IsCancel="True" Margin="2">_Cancel</Button>
+        <StackPanel HorizontalAlignment="Right" Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+            <Button x:Name="OK"  IsDefault="True" >_OK</Button>
+            <Button x:Name="Yes">_Yes</Button>
+            <Button x:Name="No">_No</Button>
+            <Button x:Name="Cancel" IsCancel="True">_Cancel</Button>
         </StackPanel>
     </Grid>
 </Window>
