@@ -1,10 +1,13 @@
-﻿using LightImage.Interactions.Files;
-using System;
+﻿using System;
 using System.IO;
 using System.Threading.Tasks;
+using LightImage.Interactions.Files;
 
 namespace LightImage.Interactions
 {
+    /// <summary>
+    /// Extension methods for interactions related to selecting files.
+    /// </summary>
     public static class FileInteractionExtensions
     {
         public static async Task<FileInfo[]> OpenFile(this IInteractionService service, OpenFileInput input)

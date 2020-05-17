@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
-    <Version>0.1-alpha</Version>
+    <Version>0.11-alpha</Version>
     <Authors>Ronald van der Velden, Jeroen van der Velden</Authors>
     <Company>Light Image</Company>
     <Description>MediatR-powered interactions for view models</Description>
@@ -15,16 +15,28 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <RootNamespace>LightImage.Interactions</RootNamespace>
+    <PackageIcon>logo.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="4.0.0" />
-    <PackageReference Include="ReactiveUI" Version="11.3.8" />
-    <PackageReference Include="ReactiveUI.WPF" Version="11.3.8" />
+    <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="4.1.0" />
+    <PackageReference Include="ReactiveUI" Version="11.4.1" />
+    <PackageReference Include="ReactiveUI.WPF" Version="11.4.1" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\LightImage.Interactions\LightImage.Interactions.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\logo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

@@ -8,11 +8,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1ACE8325-B5C5-4E17-A143-B90BADB41B8C}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		logo.png = logo.png
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightImage.Interactions.WPF", "LightImage.Interactions.WPF\LightImage.Interactions.WPF.csproj", "{A2166F64-BEDA-4027-BF1A-5AD7E9BE676B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightImage.Interactions.WPF", "LightImage.Interactions.WPF\LightImage.Interactions.WPF.csproj", "{A2166F64-BEDA-4027-BF1A-5AD7E9BE676B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightImage.Interactions.Samples", "LightImage.Interactions.Samples\LightImage.Interactions.Samples.csproj", "{038BB619-C835-4924-8FE7-7EFC4E36FDFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightImage.Interactions.Samples", "LightImage.Interactions.Samples\LightImage.Interactions.Samples.csproj", "{038BB619-C835-4924-8FE7-7EFC4E36FDFC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
