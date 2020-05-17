@@ -1,16 +1,20 @@
-﻿using LightImage.Interactions.Files;
-using Microsoft.Win32;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using LightImage.Interactions.Files;
+using Microsoft.Win32;
 
 namespace LightImage.Interactions
 {
+    /// <summary>
+    /// WPF implementation of interaction handlers for files.
+    /// </summary>
     public class FileInteractionHandler :
         IInteractionHandler<OpenFileInput, OpenFileOutput>,
         IInteractionHandler<SaveFileInput, SaveFileOutput>
     {
+        /// <inheritdoc/>
         public Task<OpenFileOutput> Handle(OpenFileInput request, CancellationToken cancellationToken)
         {
             var dialog = new OpenFileDialog { Multiselect = request.MultiSelect, CheckFileExists = true };
@@ -20,6 +24,7 @@ namespace LightImage.Interactions
             return Task.FromResult(new OpenFileOutput(result));
         }
 
+        /// <inheritdoc/>
         public Task<SaveFileOutput> Handle(SaveFileInput request, CancellationToken cancellationToken)
         {
             var dialog = new SaveFileDialog();

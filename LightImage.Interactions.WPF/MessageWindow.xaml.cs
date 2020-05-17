@@ -1,18 +1,18 @@
-﻿using LightImage.Interactions.Messages;
-using LightImage.Interactions.Prompts;
-using MahApps.Metro.IconPacks;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using LightImage.Interactions.Messages;
+using LightImage.Interactions.Prompts;
+using MahApps.Metro.IconPacks;
 
 namespace LightImage.Interactions
 {
     /// <summary>
-    /// Interaction logic for MessageWindow.xaml
+    /// Interaction logic for MessageWindow.xaml.
     /// </summary>
     public partial class MessageWindow : Window,
         IInteractionHandler<MessageOptions, MessageResult>,
@@ -29,13 +29,20 @@ namespace LightImage.Interactions
 
         private Predicate<string> _accept;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MessageWindow"/> class.
+        /// </summary>
         public MessageWindow()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Gets the button that has been selected.
+        /// </summary>
         public MessageButton Button { get; private set; } = default;
 
+        /// <inheritdoc/>
         public async Task<MessageResult> Handle(MessageOptions request, CancellationToken cancellationToken)
         {
             SetInput(request, null, false, string.Empty);
@@ -43,10 +50,11 @@ namespace LightImage.Interactions
             return new MessageResult(Button);
         }
 
+        /// <inheritdoc/>
         public async Task<PromptResult> Handle(PromptOptions request, CancellationToken cancellationToken)
         {
             SetInput(request, request.Predicate, true, request.Value);
-            var ok = true == await this.ShowDialogAsync();
+            var ok = await this.ShowDialogAsync() == true;
             return new PromptResult(ok ? TheTextBox.Text : null, Button);
         }
 
@@ -93,7 +101,9 @@ namespace LightImage.Interactions
         private void TheTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (OK != null && _accept != null)
+            {
                 UpdateOK();
+            }
         }
 
         private void UpdateOK()

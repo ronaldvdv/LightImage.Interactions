@@ -2,6 +2,9 @@
 
 namespace LightImage.Interactions
 {
+    /// <summary>
+    /// Extension methods for task-like interactions.
+    /// </summary>
     public static class TaskInteractionExtensions
     {
         /// <summary>
@@ -19,6 +22,7 @@ namespace LightImage.Interactions
             {
                 await task.Execute();
             }
+
             return result;
         }
     }

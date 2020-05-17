@@ -37,6 +37,13 @@ namespace LightImage.Interactions.Enums
         /// </summary>
         public object Value { get; }
 
+        /// <summary>
+        /// Create a new instance of a <see cref="EnumMemberViewModel"/>.
+        /// </summary>
+        /// <param name="enumType">Type of enumeration.</param>
+        /// <param name="memberName">Name of the enumeration member to be represented by the viewmodel.</param>
+        /// <param name="selected">Value indicating whether the member is currently selected.</param>
+        /// <returns>The view model representing the member.</returns>
         public static EnumMemberViewModel Create(Type enumType, string memberName, bool selected)
         {
             var value = Enum.Parse(enumType, memberName);

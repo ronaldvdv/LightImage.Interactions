@@ -15,7 +15,7 @@
         /// Gets or sets the filters available for showing a subset of existing files.
         /// </summary>
         /// <remarks>
-        /// Filters are separated by a pipe symbol |; each filter has the form description|extensions like "Text files (*.txt)|*.txt"
+        /// Filters are separated by a pipe symbol |; each filter has the form description|extensions like "Text files (*.txt)|*.txt".
         /// </remarks>
         public string Filter { get; set; }
 
