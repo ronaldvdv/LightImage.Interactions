@@ -23,7 +23,7 @@ namespace LightImage.Interactions
                 throw new ArgumentNullException(nameof(input));
             }
 
-            var result = await service.Show<OpenFileInput, OpenFileOutput>(input);
+            var result = await service.Handle<OpenFileInput, OpenFileOutput>(input);
             return result?.Files;
         }
 
@@ -61,7 +61,7 @@ namespace LightImage.Interactions
                 throw new ArgumentNullException(nameof(input));
             }
 
-            var result = await service.Show<SaveFileInput, SaveFileOutput>(input);
+            var result = await service.Handle<SaveFileInput, SaveFileOutput>(input);
             return result?.File;
         }
 

@@ -20,7 +20,7 @@ namespace LightImage.Interactions
         }
 
         /// <inheritdoc/>
-        public Task<TMessageOutput> Show<TMessageInput, TMessageOutput>(TMessageInput input)
+        public Task<TMessageOutput> Handle<TMessageInput, TMessageOutput>(TMessageInput input)
             where TMessageInput : IInteractionInput<TMessageOutput>
         {
             return _mediator.Send(input);

@@ -91,10 +91,6 @@ You can define custom interactions as follows:
 * Instantiate an input view model `input` of your type `TInput`
 * Call `var output = interactionService.Show<TInput, TOutput>(input)` to let your handler generate output.
 
-## Tasks
-
-In various cases, the interaction results in a boolean confirmation from the user and in case of `True`, you'll want to perform some task. For this common scenario, you may want to have your input model implement `IInterfaceTask` which derives from `IInterfaceInput<bool>`. This requires writing a method `Task Execute()`. You then call `interactionService.Handle(input)`. This will first call your handler to see if the use confirms. If so, it calls the `Execute` method on your input model.
-
 ## Unit tests
 
 ## Roadmap

@@ -94,7 +94,7 @@ namespace LightImage.Interactions
         /// <returns>The result of the interaction.</returns>
         public static Task<PromptResult> Prompt(this IInteractionService service, PromptOptions options)
         {
-            return service.Show<PromptOptions, PromptResult>(options);
+            return service.Handle<PromptOptions, PromptResult>(options);
         }
 
         /// <summary>

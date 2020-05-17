@@ -40,6 +40,19 @@ namespace LightImage.Interactions
         /// </summary>
         public MessageButton ShowResult { get; set; } = MessageButton.Ok;
 
+        /// <inheritdoc/>
+        public Task<TMessageOutput> Handle<TMessageInput, TMessageOutput>(TMessageInput input)
+                                    where TMessageInput : IInteractionInput<TMessageOutput>
+        {
+            if (!_results.TryGetValue(typeof(TMessageInput), out var func))
+            {
+                throw new InvalidOperationException($"No test output defined for type '{typeof(TMessageOutput)}'");
+            }
+
+            var result = (TMessageOutput)func(input);
+            return Task.FromResult(result);
+        }
+
         /// <summary>
         /// Register a function that generates results based on interaction input.
         /// </summary>
@@ -74,19 +87,6 @@ namespace LightImage.Interactions
             where TInput : IInteractionInput<TOutput>
         {
             Setup<TInput, TOutput>(() => output);
-        }
-
-        /// <inheritdoc/>
-        public Task<TMessageOutput> Show<TMessageInput, TMessageOutput>(TMessageInput input)
-                                    where TMessageInput : IInteractionInput<TMessageOutput>
-        {
-            if (!_results.TryGetValue(typeof(TMessageInput), out var func))
-            {
-                throw new InvalidOperationException($"No test output defined for type '{typeof(TMessageOutput)}'");
-            }
-
-            var result = (TMessageOutput)func(input);
-            return Task.FromResult(result);
         }
     }
 }

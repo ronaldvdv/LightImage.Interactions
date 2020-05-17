@@ -21,7 +21,7 @@ namespace LightImage.Interactions
                             where TEnum : struct, Enum
         {
             var vm = EnumViewModel.Create<TEnum>(title, message);
-            var result = await service.Show<EnumViewModel, EnumMemberViewModel>(vm);
+            var result = await service.Handle<EnumViewModel, EnumMemberViewModel>(vm);
             return (TEnum?)result?.Value;
         }
     }

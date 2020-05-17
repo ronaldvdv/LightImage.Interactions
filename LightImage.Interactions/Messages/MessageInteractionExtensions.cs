@@ -16,7 +16,7 @@ namespace LightImage.Interactions
         /// <returns>The button chosen as a result of the interaction.</returns>
         public static async Task<MessageButton> ShowMessage(this IInteractionService service, MessageOptions options)
         {
-            var result = await service.Show<MessageOptions, MessageResult>(options);
+            var result = await service.Handle<MessageOptions, MessageResult>(options);
             return result.Button;
         }
 

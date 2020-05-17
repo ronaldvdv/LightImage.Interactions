@@ -14,7 +14,7 @@ namespace LightImage.Interactions
         /// <typeparam name="TOutput">Type of output of the interaction.</typeparam>
         /// <param name="input">Input for the interaction.</param>
         /// <returns>A <see cref="Task{TResult}"/> representing the result of the asynchronous operation.</returns>
-        Task<TOutput> Show<TInput, TOutput>(TInput input)
+        Task<TOutput> Handle<TInput, TOutput>(TInput input)
             where TInput : IInteractionInput<TOutput>;
     }
 }
