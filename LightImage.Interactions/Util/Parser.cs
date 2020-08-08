@@ -59,12 +59,30 @@ namespace LightImage.Interactions.Util
                 return (Parser<T>)(object)new FloatParser();
             }
 
+            if (type == typeof(double?))
+            {
+                return (Parser<T>)(object)new OptionalDoubleParser();
+            }
+
+            if (type == typeof(double))
+            {
+                return (Parser<T>)(object)new DoubleParser();
+            }
+
             if (type == typeof(string))
             {
                 return (Parser<T>)(object)new StringParser();
             }
 
             throw new InvalidOperationException($"No default {nameof(Parser<T>)} could be found for type {type}");
+        }
+
+        private class DoubleParser : Parser<double>
+        {
+            public override bool Parse(string value, out double result)
+            {
+                return double.TryParse(value, NumberStyles.Any, CultureInfo.InvariantCulture, out result);
+            }
         }
 
         private class FloatParser : Parser<float>
@@ -80,6 +98,16 @@ namespace LightImage.Interactions.Util
             public override bool Parse(string value, out int result)
             {
                 return int.TryParse(value, out result);
+            }
+        }
+
+        private class OptionalDoubleParser : Parser<double?>
+        {
+            public override bool Parse(string value, out double? result)
+            {
+                var success = double.TryParse(value, NumberStyles.Any, CultureInfo.InvariantCulture, out var parsed);
+                result = success ? parsed : default;
+                return success;
             }
         }
 
