@@ -12,6 +12,11 @@ namespace LightImage.Interactions
     public abstract class ReactiveInteractionWindow<TViewModel> : ReactiveWindow<TViewModel>, IInteractionHandler<TViewModel, bool>
         where TViewModel : class, IInteractionInput<bool>
     {
+        public ReactiveInteractionWindow(IInteractionWindowBuilder builder)
+        {
+            builder.Setup(this);
+        }
+
         /// <inheritdoc/>
         public async Task<bool> Handle(TViewModel request, CancellationToken cancellationToken)
         {

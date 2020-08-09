@@ -7,6 +7,11 @@ namespace LightImage.Interactions
     public abstract class InteractionWindow<TInput, TOutput> : Window, IInteractionHandler<TInput, TOutput>
         where TInput : IInteractionInput<TOutput>
     {
+        public InteractionWindow(IInteractionWindowBuilder builder)
+        {
+            builder.Setup(this);
+        }
+
         public async Task<TOutput> Handle(TInput input, CancellationToken cancellationToken)
         {
             SetInput(input);

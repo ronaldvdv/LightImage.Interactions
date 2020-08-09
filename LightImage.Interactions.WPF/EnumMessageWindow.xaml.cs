@@ -13,7 +13,9 @@ namespace LightImage.Interactions
         /// <summary>
         /// Initializes a new instance of the <see cref="EnumMessageWindow"/> class.
         /// </summary>
-        public EnumMessageWindow()
+        /// <param name="builder">Interaction window builder.</param>
+        public EnumMessageWindow(IInteractionWindowBuilder builder)
+            : base(builder)
         {
             InitializeComponent();
         }
@@ -54,6 +56,9 @@ namespace LightImage.Interactions
     /// </summary>
     public abstract class EnumMessageWindowBase : InteractionWindow<EnumViewModel, EnumMemberViewModel>
     {
+        protected EnumMessageWindowBase(IInteractionWindowBuilder builder) : base(builder)
+        {
+        }
     }
 
 #pragma warning restore SA1402 // File may only contain a single type
