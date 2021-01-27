@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
-    <Version>0.16.0-alpha</Version>
+    <Version>0.17.0-alpha</Version>
     <Authors>Ronald van der Velden, Jeroen van der Velden</Authors>
     <Company>Light Image</Company>
     <Description>MediatR-powered interactions for view models</Description>
