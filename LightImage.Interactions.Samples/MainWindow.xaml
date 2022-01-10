@@ -15,6 +15,7 @@
         <Button x:Name="InfoButton">Info window</Button>
         <Button x:Name="YesNoButton">Yes-no choice</Button>
         <Button x:Name="FileButton">Pick a file</Button>
+        <Button x:Name="FolderButton">Pick a folder</Button>
         <Button x:Name="EnumButton">Enumeration window</Button>
         <Button x:Name="NumberButton">Enter a number</Button>
         <Button x:Name="NumberRangeButton">Number with predicate</Button>

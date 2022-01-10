@@ -12,7 +12,8 @@ namespace LightImage.Interactions
     /// </summary>
     public class FileInteractionHandler :
         IInteractionHandler<OpenFileInput, OpenFileOutput>,
-        IInteractionHandler<SaveFileInput, SaveFileOutput>
+        IInteractionHandler<SaveFileInput, SaveFileOutput>,
+        IInteractionHandler<SelectFolderInput, SelectFolderOutput>
     {
         /// <inheritdoc/>
         public Task<OpenFileOutput> Handle(OpenFileInput request, CancellationToken cancellationToken)
@@ -32,6 +33,19 @@ namespace LightImage.Interactions
             var ok = dialog.ShowDialog();
             var result = ok == true ? new FileInfo(dialog.FileName) : null;
             return Task.FromResult(new SaveFileOutput(result));
+        }
+
+        /// <inheritdoc/>
+        public Task<SelectFolderOutput> Handle(SelectFolderInput request, CancellationToken cancellationToken)
+        {
+            var dialog = new System.Windows.Forms.FolderBrowserDialog();
+            dialog.Description = request.Title;
+            dialog.UseDescriptionForTitle = true;
+            dialog.ShowNewFolderButton = false;
+            dialog.SelectedPath = request.Path;
+            var ok = dialog.ShowDialog();
+            var result = ok == System.Windows.Forms.DialogResult.OK ? new DirectoryInfo(dialog.SelectedPath) : null;
+            return Task.FromResult(new SelectFolderOutput(result));
         }
 
         private static void Initialize<T>(FileDialog dialog, FileInput<T> input)

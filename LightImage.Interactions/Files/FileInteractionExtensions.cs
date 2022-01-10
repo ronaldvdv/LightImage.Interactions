@@ -83,5 +83,40 @@ namespace LightImage.Interactions
         {
             return SaveFile(service, new SaveFileInput { DefaultExtension = defaultExtension, Filter = filter, Path = path, Title = title });
         }
+
+        /// <summary>
+        /// Ask for selecting a folder, using a <see cref="SelectFolderInput"/> view model to specify input.
+        /// </summary>
+        /// <param name="service">The interaction service.</param>
+        /// <param name="input">The input to the interaction.</param>
+        /// <returns>The chosen file(s) or NULL if canceled.</returns>
+        public static async Task<DirectoryInfo> SelectFolder(this IInteractionService service, SelectFolderInput input)
+        {
+            if (input is null)
+            {
+                throw new ArgumentNullException(nameof(input));
+            }
+
+            var result = await service.Handle<SelectFolderInput, SelectFolderOutput>(input);
+            return result.Folder;
+        }
+
+        /// <summary>
+        /// Ask for selecting a folder, using a <see cref="SelectFolderInput"/> view model to specify input.
+        /// </summary>
+        /// <param name="service">The interaction service.</param>
+        /// <param name="path">Path to the folder to be shown initially.</param>
+        /// <param name="title">Title for the dialog.</param>
+        /// <returns>The chosen file(s) or NULL if canceled.</returns>
+        public static Task<DirectoryInfo> SelectFolder(this IInteractionService service, string path = "", string title = "Select folder")
+        {
+            var input = new SelectFolderInput
+            {
+                Path = path,
+                Title = title,
+            };
+
+            return SelectFolder(service, input);
+        }
     }
 }

@@ -18,6 +18,7 @@ namespace LightImage.Interactions.Samples
             Info = ReactiveCommand.CreateFromTask(InfoImpl);
             YesNo = ReactiveCommand.CreateFromTask(YesNoImpl);
             File = ReactiveCommand.CreateFromTask(FileImpl);
+            Folder = ReactiveCommand.CreateFromTask(FolderImpl);
             Enum = ReactiveCommand.CreateFromTask(EnumImpl);
             Number = ReactiveCommand.CreateFromTask(NumberImpl);
             NumberRange = ReactiveCommand.CreateFromTask(NumberRangeImpl);
@@ -41,6 +42,7 @@ namespace LightImage.Interactions.Samples
 
         public ReactiveCommand<Unit, Unit> Enum { get; }
         public ReactiveCommand<Unit, Unit> File { get; }
+        public ReactiveCommand<Unit, Unit> Folder { get; }
         public ReactiveCommand<Unit, Unit> Info { get; }
         public ReactiveCommand<Unit, Unit> Number { get; }
         public ReactiveCommand<Unit, Unit> NumberRange { get; }
@@ -55,6 +57,11 @@ namespace LightImage.Interactions.Samples
         private async Task FileImpl()
         {
             var result = await _interactions.OpenFile();
+        }
+
+        private async Task FolderImpl()
+        {
+            var result = await _interactions.SelectFolder();
         }
 
         private async Task InfoImpl()

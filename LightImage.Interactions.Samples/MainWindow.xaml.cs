@@ -15,6 +15,7 @@ namespace LightImage.Interactions.Samples
             this.BindCommand(ViewModel, vm => vm.Info, v => v.InfoButton);
             this.BindCommand(ViewModel, vm => vm.YesNo, v => v.YesNoButton);
             this.BindCommand(ViewModel, vm => vm.File, v => v.FileButton);
+            this.BindCommand(ViewModel, vm => vm.Folder, v => v.FolderButton);
             this.BindCommand(ViewModel, vm => vm.Enum, v => v.EnumButton);
             this.BindCommand(ViewModel, vm => vm.Number, v => v.NumberButton);
             this.BindCommand(ViewModel, vm => vm.NumberRange, v => v.NumberRangeButton);
