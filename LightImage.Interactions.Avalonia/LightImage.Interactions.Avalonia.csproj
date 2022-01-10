@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+	  <TargetFramework>netstandard2.1</TargetFramework>
+	  <Description>Control's Library for Avalonia.</Description>
+	  <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+	  <Version>0.18.0-alpha</Version>
+	  <Authors>Ronald van der Velden, Jeroen van der Velden</Authors>
+	  <Company>Light Image</Company>
+	  <Description>MediatR-powered interactions for view models</Description>
+	  <PackageProjectUrl>https://github.com/ronaldvdv/LightImage.Interactions</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/ronaldvdv/LightImage.Interactions</RepositoryUrl>
+	  <Copyright>(c) 2022 Light Image</Copyright>
+	  <PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
+	  <PackageTags>mediatr,mediator,view models,mvvm,interactions,dialogs,input,messages,wpf,xaml</PackageTags>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	  <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+	  <RootNamespace>LightImage.Interactions</RootNamespace>
+	  <PackageIcon>logo.png</PackageIcon>
+	  <AssemblyVersion>0.18.0.0</AssemblyVersion>
+	  <FileVersion>0.18.0.0</FileVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove=".gitignore" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="0.10.11" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.10.11" />
+    <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.10" />
+    <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.11" />
+   </ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\logo.png">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\LightImage.Interactions\LightImage.Interactions.csproj" />
+	</ItemGroup>
+</Project>

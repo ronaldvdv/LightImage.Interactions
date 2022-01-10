@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30014.187
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32104.313
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightImage.Interactions", "LightImage.Interactions\LightImage.Interactions.csproj", "{5E1A7407-52C4-4A90-AA1A-43C9A2E9F5F6}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightImage.Interactions.WPF", "LightImage.Interactions.WPF\LightImage.Interactions.WPF.csproj", "{A2166F64-BEDA-4027-BF1A-5AD7E9BE676B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightImage.Interactions.Samples", "LightImage.Interactions.Samples\LightImage.Interactions.Samples.csproj", "{038BB619-C835-4924-8FE7-7EFC4E36FDFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightImage.Interactions.Avalonia", "LightImage.Interactions.Avalonia\LightImage.Interactions.Avalonia.csproj", "{B4941E1B-F2B7-4C49-91A1-05E81C25EED7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{038BB619-C835-4924-8FE7-7EFC4E36FDFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{038BB619-C835-4924-8FE7-7EFC4E36FDFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{038BB619-C835-4924-8FE7-7EFC4E36FDFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4941E1B-F2B7-4C49-91A1-05E81C25EED7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4941E1B-F2B7-4C49-91A1-05E81C25EED7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4941E1B-F2B7-4C49-91A1-05E81C25EED7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4941E1B-F2B7-4C49-91A1-05E81C25EED7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
