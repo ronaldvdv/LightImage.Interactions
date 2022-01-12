@@ -14,7 +14,7 @@ namespace LightImage.Interactions
         /// Initializes a new instance of the <see cref="EnumMessageWindow"/> class.
         /// </summary>
         /// <param name="builder">Interaction window builder.</param>
-        public EnumMessageWindow(IInteractionWindowBuilder builder)
+        public EnumMessageWindow(IInteractionWindowBuilder builder = null)
             : base(builder)
         {
             InitializeComponent();
@@ -56,7 +56,7 @@ namespace LightImage.Interactions
     /// </summary>
     public abstract class EnumMessageWindowBase : InteractionWindow<EnumViewModel, EnumMemberViewModel>
     {
-        protected EnumMessageWindowBase(IInteractionWindowBuilder builder) : base(builder)
+        protected EnumMessageWindowBase(IInteractionWindowBuilder builder = null) : base(builder)
         {
         }
     }
