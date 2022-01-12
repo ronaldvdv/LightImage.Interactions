@@ -5,7 +5,7 @@ MediatR-powered interactions in view models.
 
 ## Quick overview
 
-This package allows you to simplify interactions in your view models like asking for input, displaying a notification or picking a file. It uses dependency injection instead of the ReactiveUI interaction concept.
+This package allows you to simplify interactions in your view models like asking for input, displaying a notification or picking a file. It uses dependency injection instead of the ReactiveUI interaction concept. This way, interaction handlers can be registered centrally.
 
 ```cs
 public class Test
@@ -33,7 +33,7 @@ public class Test
 
 ```
 
-## Introduction
+## Why this library?
 
 View models allow developers to separate user interface logic from the actual interface definition. Various awesome libraries like [ReactiveUI](https://reactiveui.net/) provide a great foundation for both the view model and view layers. When it comes to showing message boxes and input dialogs, it often becomes tricky to avoid the view model becoming too much dependent on the view layer. ReactiveUI solves this by letting the view model expose an `Interaction` and letting the view register a handler. The downside is that now the view showing this particular view model has become dependent on the mechanism for handling the interaction.
 
@@ -45,10 +45,12 @@ For example, let's assume we have a view model representing a simple document ed
 
 * Setup [MediatR](https://github.com/jbogard/MediatR) together with the dependency injection container of your choice, for example [Autofac](https://autofac.org/).
 * Install the `LightImage.Interactions` package in the project containing your view models. Use the extension methods below in your view models, or define customer interactions as separate view models.
-* Install the `LightImage.Interactions.WPF` package in the package containing your views, or implement your own dialogs.
+* Either install the `LightImage.Interactions.WPF` or `LightIamge.Interactions.Avalonia` package in the project containing your views, or implement your own dialogs.
 * In the dependency injection container, make sure to
-  - register the `InteractionService` class
+  - register the `InteractionService` class as the implementatio nof `IInteractionService`
   - register the interaction handlers
+* In your view models, inject the `IInteractionService` and use the extension methods (see below) to perform interactions
+* Unit test your view models by injecting the `TestInteractionService`  into your dependency container and setting fake interaction results on that class.
 
 ## Autofac sample
 
@@ -59,7 +61,7 @@ If you're using Autofac and WPF, the specific steps would be as follows:
   - [MediatR](https://www.nuget.org/packages/MediatR/)
   - [MediatR.Extensions.Autofac.DependencyInjection](https://www.nuget.org/packages/MediatR.Extensions.Autofac.DependencyInjection)
   - [LightImage.Interactions](https://www.nuget.org/packages/LightImage.Interactions/)
-  - [LightImage.Interactions.WPF](https://www.nuget.org/packages/LightImage.Interactions.WPF/)
+  - [LightImage.Interactions.WPF](https://www.nuget.org/packages/LightImage.Interactions.WPF/) or [LightImage.Interactions.Avalonia](https://www.nuget.org/packages/LightImage.Interactions.Avalonia/)
 * Setup the dependency injection container:
   - Register the interaction service using  `builder.RegisterType<InteractionService>().As<IInteractionService>().SingleInstance();`  
   - Register the handlers using `builder.AddMediatR(typeof(FileInteractionHandler).Assembly, GetType().Assembly);` *Note:* the order of the assemblies is important, as this guarantees any custom handlers you define in your own assembly override the standard ones from the WPF package.

@@ -6,6 +6,7 @@
         xmlns:local="using:LightImage.Interactions"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="LightImage.Interactions.EnumMessageWindow"
+		SizeToContent="WidthAndHeight" CanResize="False"
         Title="EnumMessageWindow">
 	<Grid Margin="5">
 		<Grid.RowDefinitions>
@@ -19,7 +20,7 @@
 					<DataTemplate DataType="{x:Type vm:EnumMemberViewModel}">
 						<RadioButton IsChecked="{Binding IsSelected}" GroupName="Members" Margin="0,3" VerticalContentAlignment="Center">
 							<StackPanel Orientation="Horizontal">							
-								<TextBlock FontWeight="Bold" Text="{Binding Text, Mode=OneWay}" />
+								<TextBlock FontWeight="Bold" Text="{Binding Text, Mode=OneWay}" Margin="0,0,6,0" />
 								<TextBlock Text="{Binding Description, Mode=OneWay}" />							
 							</StackPanel>
 						</RadioButton>

@@ -47,11 +47,5 @@ namespace LightImage.Interactions
             _result = true;
             Close(true);
         }
-
-
-        private void InitializeComponent()
-        {
-            AvaloniaXamlLoader.Load(this);
-        }
     }
 }

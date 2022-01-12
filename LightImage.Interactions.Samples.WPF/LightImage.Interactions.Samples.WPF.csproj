@@ -15,8 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\LightImage.Interactions.Samples\LightImage.Interactions.Samples.csproj" />
     <ProjectReference Include="..\LightImage.Interactions.WPF\LightImage.Interactions.WPF.csproj" />
-    <ProjectReference Include="..\LightImage.Interactions\LightImage.Interactions.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,31 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:icons="using:Material.Icons.Avalonia"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="LightImage.Interactions.Avalonia.MessageWindow"
+		SizeToContent="WidthAndHeight" CanResize="False"
+        Title="MessageWindow">
+	<Grid Margin="2">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+		<icons:MaterialIcon x:Name="TheIcon" Width="24" Height="24" Margin="8,4" VerticalAlignment="Center" Foreground="Black" />
+		<StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center">
+			<Label x:Name="TheLabel" >My label</Label>
+			<TextBox x:Name="TheTextBox" Margin="0,0,0,8">Test</TextBox>
+		</StackPanel>
+		<StackPanel HorizontalAlignment="Right" Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+			<Button x:Name="OK"  IsDefault="True" >_OK</Button>
+			<Button x:Name="Yes">_Yes</Button>
+			<Button x:Name="No">_No</Button>
+			<Button x:Name="Cancel" IsCancel="True">_Cancel</Button>
+		</StackPanel>
+	</Grid>
+</Window>

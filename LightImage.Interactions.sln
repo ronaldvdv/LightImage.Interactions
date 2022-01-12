@@ -5,10 +5,11 @@ VisualStudioVersion = 17.1.32104.313
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightImage.Interactions", "LightImage.Interactions\LightImage.Interactions.csproj", "{5E1A7407-52C4-4A90-AA1A-43C9A2E9F5F6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1ACE8325-B5C5-4E17-A143-B90BADB41B8C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0-Solution Items", "0-Solution Items", "{1ACE8325-B5C5-4E17-A143-B90BADB41B8C}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		logo.png = logo.png
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightImage.Interactions.WPF", "LightImage.Interactions.WPF\LightImage.Interactions.WPF.csproj", "{A2166F64-BEDA-4027-BF1A-5AD7E9BE676B}"
@@ -16,6 +17,14 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightImage.Interactions.Samples.WPF", "LightImage.Interactions.Samples.WPF\LightImage.Interactions.Samples.WPF.csproj", "{038BB619-C835-4924-8FE7-7EFC4E36FDFC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightImage.Interactions.Avalonia", "LightImage.Interactions.Avalonia\LightImage.Interactions.Avalonia.csproj", "{B4941E1B-F2B7-4C49-91A1-05E81C25EED7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightImage.Interactions.Samples", "LightImage.Interactions.Samples\LightImage.Interactions.Samples.csproj", "{1AB2D28C-FD76-4C72-B230-3C40C7820139}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightImage.Interactions.Samples.Avalonia", "LightImage.Interactions.Samples.Avalonia\LightImage.Interactions.Samples.Avalonia.csproj", "{7FAA16C0-18DC-4AB7-9757-B93F1288069E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Source", "1-Source", "{ECA28874-AE95-456D-822B-01A0B4C4A2FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-Samples", "2-Samples", "{FA109FF3-9B62-4013-B75F-A747A364ACEE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,9 +48,25 @@ Global
 		{B4941E1B-F2B7-4C49-91A1-05E81C25EED7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4941E1B-F2B7-4C49-91A1-05E81C25EED7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4941E1B-F2B7-4C49-91A1-05E81C25EED7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AB2D28C-FD76-4C72-B230-3C40C7820139}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AB2D28C-FD76-4C72-B230-3C40C7820139}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AB2D28C-FD76-4C72-B230-3C40C7820139}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AB2D28C-FD76-4C72-B230-3C40C7820139}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FAA16C0-18DC-4AB7-9757-B93F1288069E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FAA16C0-18DC-4AB7-9757-B93F1288069E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FAA16C0-18DC-4AB7-9757-B93F1288069E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FAA16C0-18DC-4AB7-9757-B93F1288069E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5E1A7407-52C4-4A90-AA1A-43C9A2E9F5F6} = {ECA28874-AE95-456D-822B-01A0B4C4A2FA}
+		{A2166F64-BEDA-4027-BF1A-5AD7E9BE676B} = {ECA28874-AE95-456D-822B-01A0B4C4A2FA}
+		{038BB619-C835-4924-8FE7-7EFC4E36FDFC} = {FA109FF3-9B62-4013-B75F-A747A364ACEE}
+		{B4941E1B-F2B7-4C49-91A1-05E81C25EED7} = {ECA28874-AE95-456D-822B-01A0B4C4A2FA}
+		{1AB2D28C-FD76-4C72-B230-3C40C7820139} = {FA109FF3-9B62-4013-B75F-A747A364ACEE}
+		{7FAA16C0-18DC-4AB7-9757-B93F1288069E} = {FA109FF3-9B62-4013-B75F-A747A364ACEE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {90C87DD0-9FF2-4452-B373-F2D51947E282}
