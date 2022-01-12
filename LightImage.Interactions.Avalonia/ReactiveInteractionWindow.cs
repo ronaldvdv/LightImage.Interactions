@@ -11,9 +11,8 @@ namespace LightImage.Interactions
     public abstract class ReactiveInteractionWindow<TViewModel> : ReactiveWindow<TViewModel>, IInteractionHandler<TViewModel, bool>
         where TViewModel : class, IInteractionInput<bool>
     {
-        public ReactiveInteractionWindow(IInteractionWindowBuilder builder)
-        {
-            builder.Setup(this);
+        public ReactiveInteractionWindow()
+        {            
         }
 
         /// <inheritdoc/>

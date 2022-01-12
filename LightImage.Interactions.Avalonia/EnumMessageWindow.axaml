@@ -1,0 +1,35 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:vm="using:LightImage.Interactions.Enums"
+        xmlns:local="using:LightImage.Interactions"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="LightImage.Interactions.EnumMessageWindow"
+        Title="EnumMessageWindow">
+	<Grid Margin="5">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+		<StackPanel Orientation="Vertical">
+			<TextBlock TextWrapping="Wrap" x:Name="TextLabel" Margin="0,3">Text</TextBlock>
+			<ItemsControl x:Name="RadioItems">
+				<ItemsControl.ItemTemplate>
+					<DataTemplate DataType="{x:Type vm:EnumMemberViewModel}">
+						<RadioButton IsChecked="{Binding IsSelected}" GroupName="Members" Margin="0,3" VerticalContentAlignment="Center">
+							<StackPanel Orientation="Horizontal">							
+								<TextBlock FontWeight="Bold" Text="{Binding Text, Mode=OneWay}" />
+								<TextBlock Text="{Binding Description, Mode=OneWay}" />							
+							</StackPanel>
+						</RadioButton>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="1">
+			<Button IsDefault="True" x:Name="OkButton" Click="OkButton_Click" Margin="3">Ok</Button>
+			<Button IsCancel="True" x:Name="CancelButton" Click="CancelButton_Click" Margin="3">Cancel</Button>
+		</StackPanel>
+	</Grid>
+</Window>
